@@ -24,9 +24,9 @@ class App extends React.Component {
     );
   }
 
-  render() {
+  renderContent() {
     if (this.state.errorMessage) {
-      return <div>{this.state.errorMessage}</div>;
+      return <div>Error: {this.state.errorMessage}</div>;
     }
 
     if (this.state.latitude && this.state.longitude) {
@@ -36,6 +36,10 @@ class App extends React.Component {
     }
 
     return <Loader text="Waiting for user action..." />;
+  }
+
+  render() {
+    return this.renderContent();
   }
 }
 
