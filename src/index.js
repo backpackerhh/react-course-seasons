@@ -3,6 +3,11 @@ import ReactDOM from "react-dom";
 
 class App extends React.Component {
   render() {
+    window.navigator.geolocation.getCurrentPosition(
+      position => console.log(position),
+      error => console.warn(error)
+    );
+
     return <div>Hi there!</div>;
   }
 }
