@@ -4,7 +4,8 @@ import ReactDOM from "react-dom";
 class App extends React.Component {
   state = {
     latitude: null,
-    longitude: null
+    longitude: null,
+    errorMessage: ""
   };
 
   componentDidMount() {
@@ -14,11 +15,17 @@ class App extends React.Component {
 
         this.setState({ latitude, longitude });
       },
-      error => console.warn(error)
+      error => {
+        this.setState({ errorMessage: error.message });
+      }
     );
   }
 
   render() {
+    if (this.state.errorMessage) {
+      return <div>{this.state.errorMessage}</div>;
+    }
+
     return (
       <div>
         Latitude: {this.state.latitude} - Longitude: {this.state.longitude}
