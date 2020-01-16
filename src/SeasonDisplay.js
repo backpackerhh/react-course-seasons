@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./SeasonDisplay.css";
+
 export default class SeasonDisplay extends React.Component {
   constructor(props) {
     super(props);
