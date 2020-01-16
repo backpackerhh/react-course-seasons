@@ -26,11 +26,15 @@ class App extends React.Component {
       return <div>{this.state.errorMessage}</div>;
     }
 
-    return (
-      <div>
-        Latitude: {this.state.latitude} - Longitude: {this.state.longitude}
-      </div>
-    );
+    if (this.state.latitude && this.state.longitude) {
+      return (
+        <div>
+          Latitude: {this.state.latitude} - Longitude: {this.state.longitude}
+        </div>
+      );
+    }
+
+    return <div>Loading...</div>;
   }
 }
 
